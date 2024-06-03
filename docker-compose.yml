@@ -1,25 +1,26 @@
 version: '3'
-services:
-  backend:
-    build: ./backend
-    ports:
-      - "9000:9000"
-    environment:
-      - API_KEY=cd48225572f420a5d0619a255c3488f4
-    volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
-    command: npm run dev
 
+services:
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
     ports:
       - "3000:3000"
     environment:
-      - REACT_APP_API_KEY=cd48225572f420a5d0619a255c3488f4
-    depends_on:
-      - backend
+      - ENDPOINT=http://backend:9001/api
     volumes:
-      - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
-    command: npm run start
+      - ./frontend:/app
+    command: npm start
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "9001:9001"
+    environment:
+      - APPID=cd48225572f420a5d0619a255c3488f4
+      - MAP_ENDPOINT=http://api.openweathermap.org/data/2.5
+      - TARGET_CITY=Helsinki,fi
+    volumes:
+      - ./backend:/app
+    command: npm start
