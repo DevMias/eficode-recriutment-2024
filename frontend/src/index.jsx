@@ -1,43 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-const baseURL = process.env.ENDPOINT;
+const baseURL = process.env.REACT_APP_ENDPOINT;
 
-const getWeatherFromApi = async () => {
-  try {
-    const response = await fetch(`${baseURL}/weather`);
-    return response.json();
-  } catch (error) {
-    console.error(error);
-  }
+const Weather = () => {
+  const [icon, setIcon] = useState("");
 
-  return {};
+  const getWeatherFromApi = async () => {
+    try {
+      const response = await fetch(`${baseURL}/weather`);
+      const data = await response.json();
+      if (data.icon) {
+        setIcon(data.icon.slice(0, -1));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getWeatherFromApi();
+  }, []);
+
+  return (
+    <div className="icon">
+      {icon && <img src={`/img/${icon}.svg`} alt="weather icon" />}
+    </div>
+  );
 };
-
-class Weather extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      icon: "",
-    };
-  }
-
-  async componentDidMount() {
-    const weather = await getWeatherFromApi();
-    this.setState({icon: weather.icon.slice(0, -1)});
-  }
-
-  render() {
-    const { icon } = this.state;
-
-    return (
-      <div className="icon">
-        { icon && <img src={`/img/${icon}.svg`} /> }
-      </div>
-    );
-  }
-}
 
 ReactDOM.render(
   <Weather />,

@@ -7,7 +7,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - ENDPOINT=http://backend:9001/api
+      - ENDPOINT=http://backend:9000/api
     volumes:
       - ./frontend:/app
     command: npm start
@@ -16,7 +16,7 @@ services:
     build:
       context: ./backend
     ports:
-      - "9001:9001"
+      - "9000:9000"
     environment:
       - APPID=cd48225572f420a5d0619a255c3488f4
       - MAP_ENDPOINT=http://api.openweathermap.org/data/2.5

@@ -10,6 +10,8 @@
     "lint": "eslint src/*.js"
   },
   "dependencies": {
+    "@koa/cors": "^5.0.0",
+    "axios": "^1.7.2",
     "debug": "^4.1.1",
     "kcors": "^2.2.2",
     "koa": "^2.13.0",
