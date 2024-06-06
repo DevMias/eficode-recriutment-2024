@@ -10,7 +10,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js --progress --inline --colors",
-    "lint": "node_modules/.bin/eslint --ext .js --ext .jsx ."
+    "lint": "node_modules/.bin/eslint --ext .js --ext .jsx .",
+    "dev": "react-scripts start"
   },
   "dependencies": {
     "react": "^16.13.1",
@@ -34,5 +35,17 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const baseURL = process.env.ENDPOINT | 'http://localhost:9000/api';
+const baseURL = 'http://localhost:9000/api';
 
 const getWeatherFromApi = async () => {
+  console.log("start api")
   try {
-    const response = await fetch(`${baseURL}/weather`);
+    const response = await fetch(`${baseURL}/weather`, {
+        headers: {
+          "Content-Type": "application/json",
+      }
+    });
+    console.log(response);
     return response.json();
   } catch (error) {
     console.error(error);
@@ -25,6 +31,7 @@ class Weather extends React.Component {
 
   async componentDidMount() {
     const weather = await getWeatherFromApi();
+    console.log(weather);
     this.setState({icon: weather.icon.slice(0, -1)});
   }
 
