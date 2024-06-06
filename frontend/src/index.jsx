@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const baseURL = 'http://localhost:9000/api';
+const baseURL = 'http://172.20.0.2:9000/api';
 
 const getWeatherFromApi = async () => {
   console.log("start api")

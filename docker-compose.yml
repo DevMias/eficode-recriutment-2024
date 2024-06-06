@@ -5,11 +5,15 @@ services:
       context: ./frontend
     ports:
       - "3000:3000"
+    depends_on:
+      - backend
     environment:
       ENDPOINT: "http://backend:9000"
     volumes:
       - ./frontend:/app/frontend
-
+    networks:
+      - app-network
+         
   backend:
     build:
       context: ./backend
@@ -19,3 +23,9 @@ services:
       APPID: "cd48225572f420a5d0619a255c3488f4"
     volumes:
       - ./backend:/app/backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
