@@ -13,11 +13,13 @@
     "@koa/cors": "^5.0.0",
     "axios": "^1.7.2",
     "debug": "^4.1.1",
+    "dotenv": "^16.4.5",
     "kcors": "^2.2.2",
     "koa": "^2.13.0",
     "koa-json": "^2.0.2",
     "koa-router": "^9.4.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "webpack-dev-server": "^5.0.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

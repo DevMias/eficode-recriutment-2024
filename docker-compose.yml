@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   frontend:
     build:
@@ -7,10 +6,9 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - ENDPOINT=http://backend:9000/api
+      ENDPOINT: "http://backend:9000"
     volumes:
-      - ./frontend:/app
-    command: npm start
+      - ./frontend:/app/frontend
 
   backend:
     build:
@@ -18,9 +16,6 @@ services:
     ports:
       - "9000:9000"
     environment:
-      - APPID=cd48225572f420a5d0619a255c3488f4
-      - MAP_ENDPOINT=http://api.openweathermap.org/data/2.5
-      - TARGET_CITY=Helsinki,fi
+      APPID: "cd48225572f420a5d0619a255c3488f4"
     volumes:
-      - ./backend:/app
-    command: npm start
+      - ./backend:/app/backend
