@@ -60,7 +60,7 @@ Remember, this is not a test for a developer position, so we're not after extens
 
 ### Comment from Jakub Mijas
 
-* App works on localhost
+* App works on localhost (cleanup commit, after that I started working on VM changes)
 
 * Azure VM is setted up same thing wit nginx and certbot seems to work okay
 
