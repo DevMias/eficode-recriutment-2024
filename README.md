@@ -57,3 +57,15 @@ Remember, this is not a test for a developer position, so we're not after extens
 * Extra points for making sure the app could be deployed with as few manual steps as possible.
 
 * Feel free to add would-be-nice-to-haves in the app / infra setup that you didn't have time to complete as possible further improvements in README.
+
+### Comment from Jakub Mijas
+
+* App works on localhost
+
+* Azure VM is setted up same thing wit nginx and certbot seems to work okay
+
+* I attempted to do some Ansible playbook but i think it doesn't work well, it was my first contact with this tool so still i call it a fun expirience
+
+* Provided ssh public key is added
+  
+
