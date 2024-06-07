@@ -1,0 +1,19 @@
+---
+- name: Basic Setup
+  hosts: all
+  become: yes
+
+  roles:
+    - docker
+    - nginx
+
+  tasks:
+    - name: Copy Docker Compose file
+      copy:
+        src: ~/eficode-recruitment-2024/docker-compose.yml
+        dest: /app/docker-compose.yml
+
+    - name: Pull Docker images and start containers
+      command: docker-compose up -d
+      args:
+        chdir: /path/on/remote/host/
