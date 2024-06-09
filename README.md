@@ -67,5 +67,6 @@ Remember, this is not a test for a developer position, so we're not after extens
 * I attempted to do some Ansible playbook but i think it doesn't work well, it was my first contact with this tool so still i call it a fun expirience
 
 * Provided ssh public key is added
+*try to login using command ssh azureuser@20.215.41.132
   
 
